@@ -10,6 +10,7 @@ import { TokenBalanceCheck } from './components/TokenBalanceCheck'
 import { Token } from './components/Token'
 import { Section, Container, Hero, Heading } from 'react-bulma-components'
 
+
 function App() {
 
   return (
@@ -18,7 +19,7 @@ function App() {
         <Hero.Body>
           <Container>
             <Heading>
-              cETH Wallet
+              cTH Wallet
             </Heading>
           </Container>
         </Hero.Body>
@@ -27,6 +28,9 @@ function App() {
       <Symfoni autoInit={true} >
         <Section>
           <img className="logo_img" src="/cheapeth-logo.png" />
+
+          <p>https://node.cheapeth.org/rpc</p>
+          <div className="s30" />
 
           <Heading size={4}>Receiving Address:</Heading>
           <AddressLabel />
