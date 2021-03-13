@@ -1,27 +1,32 @@
-# hardhat-react-boilerplate + Token
+# cheapeth-wallet
 
-![](https://raw.githubusercontent.com/makevoid/hardhat-react-boilerplate/master/screenshots/main.png)
+status: WIP
 
-this is a fork of
-https://github.com/symfoni/hardhat-react-boilerplate.git
+### Install
 
-In this repo I implemented some changes as I'm playing with the setup, backend pipeline (runs a truffle/ganache-like server, compiles and deploys the contract automatically)
+on the main directory run:
 
-### Changes:
+    npm install
 
-- Enabled Token contract
-- Added a basic UI to this repo (using Bulma.io CSS microframework)
+on the `frontend` directory run:
 
-
-### WIP
-
-Adding ERC20 transfers and info (checkBalance()) as UI elements
-
-- implement `balanceOf()` (done)
-- implement `transfer()` method
+    npm install
 
 
-### Enjoy
+### Run
+
+on the main directory, run the backend app:
+
+    npm run node
+
+and then on the same directory, run the frontend:
+
+    npm run frontend
+
+a browser should open onto http://localhost:3000 and should show the Wallet UI
+
+use Metamask to use the wallet functionality
+
 
 @makevoid
 
@@ -53,7 +58,7 @@ It runs up a Hardhat node, compile contracts, generates typescript interfaces, c
   4. Click "Add"
   5. Give the profile a name and click "Add"
   6. In this new browser window, install Metamask and import the keyphrase above
-8. Ensure Metamask RPC is set to `http://localhost:8545` and chainID `31337`.
+8. Ensure Metamask RPC is set to `http://localhost:8545` and chainID `777`.
 9. Start the React app: `npm start`
 
 The frontend should open at http://localhost:3000/
@@ -73,25 +78,3 @@ const config: HardhatUserConfig = {
 ```
 
 Ensure you are useing RPC to http://localhost:8545.
-
-You may also need to set the chainID to 31337 if you are useing Hardhat blockchain development node.
-
-## Invalid nonce.
-
-```bash
-eth_sendRawTransaction
-  Invalid nonce. Expected X but got X.
-```
-
-Reset your account in Metamask.
-
-# We ❤️ these **Ethereum** projects:
-
-- [Hardhat 👷](https://hardhat.org/)
-- [Hardhat-deploy 🤘](https://hardhat.org/plugins/hardhat-deploy.html)
-- [Typechain 🔌](https://github.com/ethereum-ts/Typechain#readme)
-- [hardhat-typechain 🧙‍♀️](https://hardhat.org/plugins/hardhat-typechain.html)
-- [ethers.js v5 ⺦](https://github.com/ethers-io/ethers.js#readme)
-- [web3modal 💸](https://github.com/Web3Modal/web3modal#web3modal)
-- [ts-morph 🏊‍♂️](https://github.com/dsherret/ts-morph)
-- [@symfoni/hardhat-react 🎻(our own)](https://www.npmjs.com/package/@symfoni/hardhat-react)

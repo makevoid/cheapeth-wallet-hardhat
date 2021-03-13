@@ -6,7 +6,6 @@ interface Props { }
 
 export const TokenBalanceCheck: React.FC<Props> = () => {
   const token = useContext(TokenContext)
-  console.log(token)
   const [totalSupply, setTotalSupply] = useState("")
   const [name, setName] = useState("")
   const [balanceAddress, setBalanceAddress] = useState("")

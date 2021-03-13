@@ -11,7 +11,15 @@ export const GreeterLabel: React.FC<Props> = () => {
     const doAsync = async () => {
       if (!greeter.instance) return
       console.log("Greeter is deployed at ", greeter.instance.address)
-      setMessage(await greeter.instance.greet())
+      let message
+      try {
+        message = await greeter.instance.greet()
+      } catch(err) {
+        console.error(err)
+        message = "error: address not loaded - did you connect metamask?"
+      }
+      console.log("message:", message)
+      setMessage(message)
     }
     doAsync()
   }, [greeter])

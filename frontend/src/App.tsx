@@ -5,6 +5,7 @@ import 'react-bulma-components/dist/react-bulma-components.min.css'
 import { Symfoni } from "./hardhat/SymfoniContext"
 import { Greeter } from './components/Greeter'
 import { GreeterLabel } from './components/GreeterLabel'
+import { AddressLabel } from './components/AddressLabel'
 import { TokenBalanceCheck } from './components/TokenBalanceCheck'
 import { Token } from './components/Token'
 import { Section, Container, Hero, Heading } from 'react-bulma-components'
@@ -17,7 +18,7 @@ function App() {
         <Hero.Body>
           <Container>
             <Heading>
-              ETH App React Components
+              cETH Wallet
             </Heading>
           </Container>
         </Hero.Body>
@@ -25,17 +26,10 @@ function App() {
 
       <Symfoni autoInit={true} >
         <Section>
-          <Heading size={4}>Greeter:</Heading>
-          <Greeter />
-          <div className="s30" />
+          <img className="logo_img" src="/cheapeth-logo.png" />
 
-          <Heading size={4}>GreeterLabel:</Heading>
-          <GreeterLabel />
-          <div className="s30" />
-
-
-          <Heading size={4}>Address:</Heading>
-          0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+          <Heading size={4}>Receiving Address:</Heading>
+          <AddressLabel />
           <div className="s30" />
 
           <Heading size={4}>TokenBalanceCheck:</Heading>
@@ -44,6 +38,7 @@ function App() {
 
           <Heading size={4}>Token:</Heading>
           <Token />
+
           <div className="s30" />
         </Section>
       </Symfoni>

@@ -13,10 +13,44 @@
 
 /* style */
 
+.container, #root {
+  background: #222;
+  color: #EEE;
+}
+
+#root {
+  padding-bottom: 30px;
+}
+
+h1, h2, .title.is-4 {
+  color: #EEE;
+}
+
+.is-primary, .hero.is-primary {
+  background-color: rgb(247, 78, 78) !important;
+}
+
+.hero-body h1 {
+  background: rgb(247, 78, 78);
+}
+
 .bordered {
-  border: 2px solid #BBB;
+  border: 2px solid #777;
   border-top: 0;
   border-radius: 15px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+#root > .container > section {
+  background: #2d2d2d;
+}
+
+img.logo_img {
+  width: 400px;
+}
+
+input.input {
+  background: #444;
+  color: #EEE;
 }
