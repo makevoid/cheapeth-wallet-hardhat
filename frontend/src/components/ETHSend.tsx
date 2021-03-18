@@ -1,25 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { TokenContext } from "./../hardhat/SymfoniContext"
+import { SymfoniContext } from "./../hardhat/SymfoniContext"
 import { Button, Columns, Column } from 'react-bulma-components'
+import Web3 from "web3"
 
 interface Props { }
 
-export const Token: React.FC<Props> = () => {
-  const token = useContext(TokenContext)
-  const [name, setName] = useState("")
+export const ETHSend: React.FC<Props> = () => {
   const [message, setMessage] = useState("")
   const [recipientAddress, setRecipientAddress] = useState("")
-  const [amount, setAmount] = useState("")
-
-  useEffect(() => {
-    const doAsync = async () => {
-      if (!token.instance) return
-      console.log("Token is deployed at ", token.instance.address)
-      setName(await token.instance.name())
-      // setMessage(lastTx) TODO: finish
-    }
-    doAsync()
-  }, [token])
+  const [amount, setAmount] = useState(0)
 
   const amountEntered = (evt) =>
     setAmount(evt.target.value)
@@ -27,20 +16,35 @@ export const Token: React.FC<Props> = () => {
   const recipientAddressEntered = (evt) =>
     setRecipientAddress(evt.target.value)
 
-  const tokenTransfer = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const cthTransfer = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault()
-    if (!token.instance) throw Error("Token instance not ready")
-    if (token.instance) {
-      const message = await token.instance.transfer(recipientAddress, amount)
-      console.log("message:", message) // TODO:
-      setMessage(message.toString())
-    }
+
+    const { web3 } = window
+    const web3Eth = new Web3(web3.currentProvider)
+    const { eth } = web3Eth
+
+    const oneGwei = 1000000000
+    const oneWei = 1000000000000000000
+    const amountWei = amount * oneWei
+
+    eth.getAccounts().then((accounts) => {
+      const address = accounts[0]
+      const fromAddress = address
+      const txObj = {
+        from: fromAddress,
+        to: recipientAddress,
+        gas: 21000,
+        gasPrice: oneGwei,
+        amount: amountWei
+      }
+      eth.sendTransaction(txObj).then((receipt) => {
+        console.log("txReceipt:", receipt)
+      })
+    })
   }
 
   return (
     <div>
-      <p>token: {name}</p>
-
       <div className="s20"></div>
       <p>send transaction (amount, recipient):</p>
       <Columns>
@@ -51,7 +55,7 @@ export const Token: React.FC<Props> = () => {
           <input className="input" placeholder="0x1234567890abcdef123456789abcdef1" onChange={recipientAddressEntered} />
         </Columns.Column>
         <Columns.Column size={1}>
-          <Button color="primary" onClick={tokenTransfer}>
+          <Button color="primary" onClick={cthTransfer}>
             Send
           </Button>
         </Columns.Column>

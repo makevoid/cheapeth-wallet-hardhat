@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { SymfoniContext } from "./../hardhat/SymfoniContext"
 import Web3 from "web3"
-import detectEthereumProvider from '@metamask/detect-provider'
 
 interface Props { }
 
@@ -10,6 +9,7 @@ export const AddressLabel: React.FC<Props> = () => {
   const [address, setAddress] = useState("")
   useEffect(() => {
     const { web3 } = window
+    // TODO: memoize/reuse connection
     const web3Eth = new Web3(web3.currentProvider)
     const { eth } = web3Eth
     eth.getAccounts().then((accounts) => {

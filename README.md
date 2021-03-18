@@ -2,6 +2,13 @@
 
 status: WIP
 
+
+### Prepare
+
+    cp hardhat.config.default.ts hardhat.config.ts
+
+modify the default mnemonic with a test cTH mnemonic with a small amount of cTH to test transactions
+
 ### Install
 
 on the main directory run:

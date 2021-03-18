@@ -14,8 +14,8 @@ export const TokenBalanceCheck: React.FC<Props> = () => {
     const doAsync = async () => {
       if (!token.instance) return
       console.log("Token is deployed at ", token.instance.address)
-      setName(await token.instance.name())
-      setTotalSupply((await token.instance.totalSupply()).toString())
+      // setName(await token.instance.name())
+      // setTotalSupply((await token.instance.totalSupply()).toString())
     }
     doAsync()
   }, [token])

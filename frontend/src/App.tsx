@@ -6,8 +6,10 @@ import { Symfoni } from "./hardhat/SymfoniContext"
 import { Greeter } from './components/Greeter'
 import { GreeterLabel } from './components/GreeterLabel'
 import { AddressLabel } from './components/AddressLabel'
+import { BalanceCheck } from './components/BalanceCheck'
+import { ETHSend } from './components/ETHSend'
 import { TokenBalanceCheck } from './components/TokenBalanceCheck'
-import { Token } from './components/Token'
+import { TokenSend } from './components/TokenSend'
 import { Section, Container, Hero, Heading } from 'react-bulma-components'
 
 
@@ -29,20 +31,19 @@ function App() {
         <Section>
           <img className="logo_img" src="/cheapeth-logo.png" />
 
-          <p>https://node.cheapeth.org/rpc</p>
-          <div className="s30" />
-
           <Heading size={4}>Receiving Address:</Heading>
           <AddressLabel />
           <div className="s30" />
 
-          <Heading size={4}>TokenBalanceCheck:</Heading>
-          <TokenBalanceCheck />
+          <Heading size={3}>cTH:</Heading>
+
+          <Heading size={4}>BalanceCheck:</Heading>
+          <BalanceCheck />
           <div className="s30" />
 
-          <Heading size={4}>Token:</Heading>
-          <Token />
+          <ETHSend />
 
+          <div className="s30" />
           <div className="s30" />
         </Section>
       </Symfoni>
