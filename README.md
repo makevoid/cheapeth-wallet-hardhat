@@ -1,5 +1,8 @@
 # cheapeth-wallet
 
+cheapETH sample wallet using hardhat
+
+
 status: WIP
 
 
